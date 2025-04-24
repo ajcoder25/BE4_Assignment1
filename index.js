@@ -5,6 +5,8 @@ const mongoose = require("mongoose");
 const express = require("express");
 const app = express();
 app.use(express.json());
+const cors = require("cors");
+app.use(cors());
 
 // connect to the database
 
@@ -268,7 +270,9 @@ app.delete("/book/bookdelete/:bookDelete", async (req, res) => {
     res.status.json({ error: "Book not found" });
   }
 });
-const PORT = 5000;
-app.listen(PORT, () => {
-  console.log(`You have connected to ${PORT}`);
-});
+// const PORT = 5000;
+// app.listen(PORT, () => {
+//   console.log(`You have connected to ${PORT}`);
+// });
+
+module.exports = app;
